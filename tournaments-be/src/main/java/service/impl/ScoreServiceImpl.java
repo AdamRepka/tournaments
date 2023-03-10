@@ -4,6 +4,9 @@ import model.Score;
 import org.springframework.stereotype.Service;
 import service.api.ScoreServiceInt;
 
+/**
+ * This class represents service for Score data object
+ */
 @Service
 public class ScoreServiceImpl implements ScoreServiceInt {
 
