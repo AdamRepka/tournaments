@@ -1,6 +1,6 @@
 package com.tournaments.tournamentsbe.service.impl;
 
-import com.tournaments.tournamentsbe.model.Score;
+import com.tournaments.tournamentsbe.model.competition.Score;
 import org.springframework.stereotype.Service;
 import com.tournaments.tournamentsbe.service.api.ScoreServiceInt;
 

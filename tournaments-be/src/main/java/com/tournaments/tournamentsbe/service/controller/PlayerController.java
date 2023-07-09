@@ -1,7 +1,7 @@
 package com.tournaments.tournamentsbe.service.controller;
 
 import com.tournaments.tournamentsbe.service.impl.PlayerServiceImpl;
-import com.tournaments.tournamentsbe.model.Player;
+import com.tournaments.tournamentsbe.model.competition.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;

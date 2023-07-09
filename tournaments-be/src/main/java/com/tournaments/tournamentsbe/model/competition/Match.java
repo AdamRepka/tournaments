@@ -1,6 +1,6 @@
-package com.tournaments.tournamentsbe.model;
+package com.tournaments.tournamentsbe.model.competition;
 
-import jakarta.persistence.Entity;
+import com.tournaments.tournamentsbe.model.competition.enums.MatchStatus;
 
 import java.util.List;
 

@@ -1,7 +1,7 @@
 package service.impl;
 
 import com.tournaments.tournamentsbe.service.impl.ScoreServiceImpl;
-import com.tournaments.tournamentsbe.model.Score;
+import com.tournaments.tournamentsbe.model.competition.Score;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

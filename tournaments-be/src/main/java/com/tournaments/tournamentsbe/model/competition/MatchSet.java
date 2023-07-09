@@ -1,4 +1,4 @@
-package com.tournaments.tournamentsbe.model;
+package com.tournaments.tournamentsbe.model.competition;
 
 import java.util.HashMap;
 import java.util.Map;

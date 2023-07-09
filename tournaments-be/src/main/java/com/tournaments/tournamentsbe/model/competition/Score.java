@@ -1,4 +1,4 @@
-package com.tournaments.tournamentsbe.model;
+package com.tournaments.tournamentsbe.model.competition;
 
 public record Score(Long firstPlayerScore, Long secondPlayerScore) {
 }

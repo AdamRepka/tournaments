@@ -1,6 +1,6 @@
 package com.tournaments.tournamentsbe.service.impl;
 
-import com.tournaments.tournamentsbe.model.Player;
+import com.tournaments.tournamentsbe.model.competition.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
