@@ -1,8 +1,8 @@
-package service.impl;
+package com.tournaments.tournamentsbe.service.impl;
 
-import model.Score;
+import com.tournaments.tournamentsbe.model.Score;
 import org.springframework.stereotype.Service;
-import service.api.ScoreServiceInt;
+import com.tournaments.tournamentsbe.service.api.ScoreServiceInt;
 
 /**
  * This class represents service for Score data object

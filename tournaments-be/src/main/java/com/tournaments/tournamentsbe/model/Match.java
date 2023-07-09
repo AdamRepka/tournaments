@@ -1,10 +1,10 @@
-package model;
+package com.tournaments.tournamentsbe.model;
 
 import jakarta.persistence.Entity;
 
 import java.util.List;
 
-@Entity
+
 public class Match {
     private Long id;
     private Player firstPlayer;

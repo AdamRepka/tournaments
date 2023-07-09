@@ -1,15 +1,12 @@
 package service.impl;
 
-import model.Score;
+import com.tournaments.tournamentsbe.service.impl.ScoreServiceImpl;
+import com.tournaments.tournamentsbe.model.Score;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.context.annotation.ComponentScan;
-import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.util.Assert;
 
-import static org.junit.jupiter.api.Assertions.*;
 @SpringBootTest(classes = ScoreServiceImpl.class)
 class ScoreServiceImplTest {
 

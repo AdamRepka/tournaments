@@ -1,4 +1,4 @@
-package model;
+package com.tournaments.tournamentsbe.model;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -11,13 +11,13 @@ public class Player {
     private Long id;
     private String firstName;
     private String lastName;
-    private Boolean deployed;
-    private Category category;
+    /*private Boolean deployed;
+  //  private Category category;
     private Long groupPosition;
     private Long overallPosition;
     private Long balls;
     private Long sets;
-    private Long points;
+    private Long points;*/
 
     public Long getId() {
         return id;
@@ -43,7 +43,7 @@ public class Player {
         this.lastName = lastName;
     }
 
-    public Boolean getDeployed() {
+   /* public Boolean getDeployed() {
         return deployed;
     }
 
@@ -97,5 +97,5 @@ public class Player {
 
     public void setPoints(Long points) {
         this.points = points;
-    }
+    }*/
 }
