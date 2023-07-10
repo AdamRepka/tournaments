@@ -1,6 +1,7 @@
 package com.tournaments.tournamentsbe.model.competition;
 
 import com.tournaments.tournamentsbe.model.competition.enums.MatchStatus;
+import com.tournaments.tournamentsbe.model.competition.player.Player;
 
 import java.util.List;
 

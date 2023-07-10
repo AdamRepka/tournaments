@@ -1,5 +1,6 @@
 package com.tournaments.tournamentsbe.model.competition;
 
+import com.tournaments.tournamentsbe.model.competition.player.Player;
 import jakarta.persistence.Entity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -8,7 +9,6 @@ import lombok.Setter;
 
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor

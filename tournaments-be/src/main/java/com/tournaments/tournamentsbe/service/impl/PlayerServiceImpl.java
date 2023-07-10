@@ -1,6 +1,6 @@
 package com.tournaments.tournamentsbe.service.impl;
 
-import com.tournaments.tournamentsbe.model.competition.Player;
+import com.tournaments.tournamentsbe.model.competition.player.Player;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
@@ -18,5 +18,10 @@ public class PlayerServiceImpl implements PlayerServiceInt {
     @Override
     public List<Player> getAllPlayers() {
         return playerRepository.findAll();
+    }
+
+    @Override
+    public void savePlayer(final Player player) {
+        playerRepository.save(player);
     }
 }
