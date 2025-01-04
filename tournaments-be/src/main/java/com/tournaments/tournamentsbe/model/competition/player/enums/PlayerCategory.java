@@ -3,13 +3,18 @@ package com.tournaments.tournamentsbe.model.competition.player.enums;
 import jakarta.persistence.Entity;
 
 public enum PlayerCategory {
-    SENIOR("SR"),
-    JUNIOR("JR"),
-    WOMEN("WO");
+    SR("SR"),
+    JR("JR"),
+    WO("WO");
 
-    private String id;
+    private final String id;
 
     PlayerCategory(String id) {
         this.id = id;
     }
+
+    public String getId() {
+        return id;
+    }
 }
+
