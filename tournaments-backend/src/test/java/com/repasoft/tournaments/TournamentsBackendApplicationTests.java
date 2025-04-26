@@ -1,4 +1,4 @@
-package com.repasoft.tournaments_backend;
+package com.repasoft.tournaments;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

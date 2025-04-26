@@ -1,4 +1,4 @@
-package com.repasoft.tournaments_backend;
+package com.repasoft.tournaments;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
