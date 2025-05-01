@@ -1,5 +1,7 @@
 package com.repasoft.tournaments.model;
 
+import com.repasoft.tournaments.model.enums.PlayerCategory;
+import com.repasoft.tournaments.model.enums.SkillLevel;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -31,4 +33,8 @@ public class Player {
 
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
     private PlayerStatistics playerStatistics;
+
+    @ManyToOne
+    @JoinColumn(name = "group_id")
+    private TournamentGroup tournamentGroup;
 }

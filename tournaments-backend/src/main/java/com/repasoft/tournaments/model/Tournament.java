@@ -23,7 +23,7 @@ public class Tournament {
     private boolean active;
 
     @OneToMany(mappedBy = "tournament", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Group> groups;
+    private List<TournamentGroup> tournamentGroups;
 
     private Date startDate;
     private Date endDate;

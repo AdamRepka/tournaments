@@ -5,8 +5,61 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb0b561a-13cf-49c9-ab3c-e61f3e4a07d1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/AddPlayerForm.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tailwind.config.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/MatchSetController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/PlayerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentGroupController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentMatchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/MatchSetDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/PlayerDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/PlayerStatisticsDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/TournamentDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/TournamentGroupDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/TournamentMatchDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/MatchSetMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/PlayerMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/PlayerStatisticsMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentGroupMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentMatchMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/test/java/com/repasoft/tournaments/controller/PlayerControllerTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Header.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PlayerListComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/AddPlayer.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/Home.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/PlayerList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/Group.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/TournamentGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/Match.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/TournamentMatch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/MatchSet.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/MatchSet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/PlayerCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/enums/PlayerCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/SkillLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/enums/SkillLevel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/Tournament.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/Tournament.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/repository/GroupRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/repository/GroupRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/repository/MatchRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/repository/MatchRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/GameSetService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/MatchSetService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/GroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentGroupService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/MatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentMatchService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/PlayerService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/PlayerService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/PlayerStatisticsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/PlayerStatisticsService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo192.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/logo512.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/manifest.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/AddPlayerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddPlayerForm.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/logo.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/reportWebVitals.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/reportWebVitals.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/setupTests.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +100,16 @@
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\projekty\tournaments\tournaments-fe\src" />
+      <recent name="C:\Users\Dell\projekty\tournaments\tournaments-fe\src\styles" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -66,6 +126,7 @@
       <updated>1745607106018</updated>
       <workItem from="1745607110909" duration="33000" />
       <workItem from="1745607148021" duration="1601000" />
+      <workItem from="1746085055603" duration="4061000" />
     </task>
     <servers />
   </component>

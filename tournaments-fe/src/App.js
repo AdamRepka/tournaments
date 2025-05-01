@@ -1,26 +1,21 @@
-import React, { useState } from "react";
-import AddPlayerForm from "./components/AddPlayerForm";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar'; // Import navbaru
+import Home from './pages/Home'; // Import Home stránky
+import AddPlayer from './pages/AddPlayer'; // Import stránky pro přidání hráče
+import PlayerList from './pages/PlayerList'; // Import stránky pro seznam hráčů
 
 function App() {
-  const [players, setPlayers] = useState([]);
-
-  const handleAddPlayer = (name) => {
-    setPlayers((prev) => [...prev, name]);
-  };
-
-  return (
-      <div className="min-h-screen bg-gray-100 p-8">
-        <AddPlayerForm onAddPlayer={handleAddPlayer} />
-        <div className="mt-8 max-w-md mx-auto bg-white p-4 rounded shadow">
-          <h3 className="text-lg font-semibold mb-2">Seznam hráčů:</h3>
-          <ul className="list-disc pl-5">
-            {players.map((player, index) => (
-                <li key={index}>{player}</li>
-            ))}
-          </ul>
-        </div>
-      </div>
-  );
+    return (
+        <Router>
+            <Navbar /> {/* Zde přidáš komponentu Navbar */}
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/add-player" element={<AddPlayer />} />
+                <Route path="/player-list" element={<PlayerList />} />
+            </Routes>
+        </Router>
+    );
 }
 
 export default App;

@@ -1,4 +1,4 @@
-package com.repasoft.tournaments.model;
+package com.repasoft.tournaments.model.enums;
 
 public enum PlayerCategory {
     SENIOR,

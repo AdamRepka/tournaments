@@ -26,10 +26,6 @@ public class PlayerService {
         return playerRepository.findById(id);
     }
 
-    public Player getPlayerByCode(String code) {
-        return playerRepository.findByCode(code);
-    }
-
     public Player createPlayer(Player player) {
         return playerRepository.save(player);
     }

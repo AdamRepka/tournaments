@@ -20,5 +20,5 @@ public class MatchSet {
     private int player2Points;
 
     @ManyToOne
-    private Match match;
+    private TournamentMatch match;
 }

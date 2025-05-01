@@ -40,9 +40,9 @@ public class PlayerStatisticsService {
                     statistics.setSetsLost(updatedStatistics.getSetsLost());
                     statistics.setBallsWon(updatedStatistics.getBallsWon());
                     statistics.setBallsLost(updatedStatistics.getBallsLost());
-                    statistics.setWins(updatedStatistics.getWins());
-                    statistics.setLosses(updatedStatistics.getLosses());
-                    statistics.setDraws(updatedStatistics.getDraws());
+                    statistics.setMatchesWon(updatedStatistics.getMatchesWon());
+                    statistics.setMatchesLost(updatedStatistics.getMatchesLost());
+                    statistics.setMatchesDraw(updatedStatistics.getMatchesDraw());
                     return playerStatisticsRepository.save(statistics);
                 })
                 .orElseThrow(() -> new RuntimeException("Statistics not found with id " + id));

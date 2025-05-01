@@ -11,7 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Match {
+public class TournamentMatch {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -33,5 +33,5 @@ public class Match {
     private boolean finished;
 
     @ManyToOne
-    private Group group;
+    private TournamentGroup tournamentGroup;
 }
