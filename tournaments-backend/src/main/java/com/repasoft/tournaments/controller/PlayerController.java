@@ -1,10 +1,9 @@
 package com.repasoft.tournaments.controller;
 
 import com.repasoft.tournaments.dto.PlayerDto;
+import com.repasoft.tournaments.mapper.PlayerMapper;
 import com.repasoft.tournaments.model.Player;
 import com.repasoft.tournaments.service.PlayerService;
-import com.repasoft.tournaments.mapper.PlayerMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,17 +16,16 @@ import java.util.stream.Collectors;
 public class PlayerController {
 
     private final PlayerService playerService;
-    private final PlayerMapper playerMapper = PlayerMapper.INSTANCE;
+    private final PlayerMapper playerMapper;
 
-    @Autowired
-    public PlayerController(PlayerService playerService) {
+    public PlayerController(PlayerService playerService, PlayerMapper playerMapper) {
         this.playerService = playerService;
+        this.playerMapper = playerMapper;
     }
 
     @GetMapping
     public ResponseEntity<List<PlayerDto>> getAllPlayers() {
-        List<Player> players = playerService.getAllPlayers();
-        List<PlayerDto> playerDtos = players.stream()
+        List<PlayerDto> playerDtos = playerService.getAllPlayers().stream()
                 .map(playerMapper::playerToPlayerDto)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(playerDtos);
