@@ -4,7 +4,9 @@ import Navbar from './components/Navbar'; // Import navbaru
 import Home from './pages/Home'; // Import Home stránky
 import AddPlayer from './pages/AddPlayer'; // Import stránky pro přidání hráče
 import PlayerList from './pages/PlayerList';
-import EditPlayer from "./components/EditPlayer"; // Import stránky pro seznam hráčů
+import EditPlayer from "./components/EditPlayer";
+import GroupSetup from "./pages/GroupSetup";
+import GroupResults from "./pages/GroupResults"; // Import stránky pro seznam hráčů
 
 function App() {
     return (
@@ -15,6 +17,8 @@ function App() {
                 <Route path="/add-player" element={<AddPlayer />} />
                 <Route path="/player-list" element={<PlayerList />} />
                 <Route path="/players/edit/:id" element={<EditPlayer />} />
+                <Route path="/group-setup" element={<GroupSetup />} />
+                <Route path="/group-results" element={<GroupResults />} />/
             </Routes>
         </Router>
     );

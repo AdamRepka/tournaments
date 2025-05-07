@@ -54,7 +54,7 @@ const AddPlayerForm = () => {
                     firstName: '',
                     lastName: '',
                     category: 'SENIOR',
-                    skillLevel: 'ADVANCED',
+                    skillLevel: 'BASIC',
                     code: '',
                     entryFeePaid: false,
                 });

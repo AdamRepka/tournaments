@@ -1,9 +1,10 @@
 package com.repasoft.tournaments.controller;
 
-import com.repasoft.tournaments.dto.TournamentGroupDto;
+import com.repasoft.tournaments.dto.*;
 import com.repasoft.tournaments.mapper.TournamentGroupMapper;
 import com.repasoft.tournaments.model.TournamentGroup;
 import com.repasoft.tournaments.service.TournamentGroupService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -13,7 +14,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/tournamentGroups")
+@RequestMapping("/api/groups")
 public class TournamentGroupController {
 
     private final TournamentGroupService tournamentGroupService;
@@ -33,13 +34,34 @@ public class TournamentGroupController {
 
     @GetMapping("/{id}")
     public ResponseEntity<TournamentGroupDto> getTournamentGroupById(@PathVariable Long id) {
-        return tournamentGroupService.getTournamentGroupById(id)
-                .map(tournamentGroup -> ResponseEntity.ok(tournamentGroupMapper.tournamentGroupToTournamentGroupDto(tournamentGroup)))
-                .orElse(ResponseEntity.notFound().build());
+        TournamentGroup group;
+        try {
+            group = tournamentGroupService.getTournamentGroupById(id);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(tournamentGroupMapper.tournamentGroupToTournamentGroupDto(group));
+    }
+
+    @PostMapping("/save")
+    public ResponseEntity<Void> saveGroupAssignments(@RequestBody List<TournamentGroupDto> groups) {
+        tournamentGroupService.saveGroupAssignments(groups);
+        return ResponseEntity.ok().build();
+    }
+
+
+    @PostMapping("/generate")
+    public ResponseEntity<List<TournamentGroupDto>> generateGroups(@RequestBody GroupGenerationRequestDto request) {
+        List<TournamentGroupDto> generatedGroups = tournamentGroupService.generateGroups(
+                request.getCategory(),
+                request.getGroupCount(),
+                request.getPlayersPerGroup()
+        );
+        return ResponseEntity.ok(generatedGroups);
     }
 
     @PostMapping
-    public ResponseEntity<TournamentGroupDto> createtournamentGroup(@RequestBody TournamentGroupDto tournamentGroupDto) {
+    public ResponseEntity<TournamentGroupDto> createTournamentGroup(@RequestBody TournamentGroupDto tournamentGroupDto) {
         TournamentGroup tournamentGroup = tournamentGroupMapper.tournamentGroupDtoToTournamentGroup(tournamentGroupDto);
         TournamentGroup savedtournamentGroup = tournamentGroupService.createTournamentGroup(tournamentGroup);
         return ResponseEntity.status(HttpStatus.CREATED).body(tournamentGroupMapper.tournamentGroupToTournamentGroupDto(savedtournamentGroup));

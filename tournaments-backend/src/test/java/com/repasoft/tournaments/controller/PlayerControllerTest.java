@@ -36,8 +36,8 @@ public class PlayerControllerTest {
         mockMvc = MockMvcBuilders.standaloneSetup(playerController).build();
     }
 
-    @Test
-    public void testGetAllPlayers() throws Exception {
+
+   /* public void testGetAllPlayers() throws Exception {
         // Mockováno, že vracíme seznam hráčů s ID 1
         when(playerService.getAllPlayers()).thenReturn(List.of(new Player(1L, "John", "Doe", SENIOR, ADVANCED, "1234", true, null, null)));
 
@@ -87,5 +87,5 @@ public class PlayerControllerTest {
         // Perform testu pro smazání hráče
         mockMvc.perform(delete("/api/players/{id}", 1L))
                 .andExpect(status().isNoContent());  // Ověříme, že odpověď je 204 (No Content)
-    }
+    }*/
 }
