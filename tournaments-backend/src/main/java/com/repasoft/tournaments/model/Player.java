@@ -31,8 +31,9 @@ public class Player {
 
     private boolean entryFeePaid;
 
+    @Builder.Default
     @OneToOne(mappedBy = "player", cascade = CascadeType.ALL, orphanRemoval = true)
-    private PlayerStatistics playerStatistics;
+    private PlayerStatistics playerStatistics = new PlayerStatistics();
 
     @ManyToOne
     @JoinColumn(name = "group_id")

@@ -22,7 +22,7 @@ public class TournamentGroup {
     @ManyToOne
     private Tournament tournament;
 
-    @OneToMany(mappedBy = "tournamentGroup", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "tournamentGroup", cascade = CascadeType.PERSIST)
     private List<Player> players;
 
     @OneToMany(mappedBy = "tournamentGroup", cascade = CascadeType.ALL, orphanRemoval = true)

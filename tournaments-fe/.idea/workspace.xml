@@ -5,22 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb0b561a-13cf-49c9-ab3c-e61f3e4a07d1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/GroupGenerationRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GroupResultsComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GroupSetupComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/GroupResults.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/GroupSetup.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentGroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentGroupController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentGroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentGroupMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/TournamentGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/TournamentGroup.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/repository/PlayerRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/repository/PlayerRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentGroupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/AddPlayerForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/AddPlayerForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -104,6 +89,7 @@
       <workItem from="1746455772166" duration="4031000" />
       <workItem from="1746469751038" duration="9198000" />
       <workItem from="1746555822379" duration="2079000" />
+      <workItem from="1746620606078" duration="607000" />
     </task>
     <servers />
   </component>

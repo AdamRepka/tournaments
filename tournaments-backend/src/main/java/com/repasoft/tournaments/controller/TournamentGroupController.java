@@ -18,11 +18,12 @@ import java.util.stream.Collectors;
 public class TournamentGroupController {
 
     private final TournamentGroupService tournamentGroupService;
-    private final TournamentGroupMapper tournamentGroupMapper = TournamentGroupMapper.INSTANCE;
+    private final TournamentGroupMapper tournamentGroupMapper;
 
     @Autowired
-    public TournamentGroupController(TournamentGroupService tournamentGroupService) {
+    public TournamentGroupController(TournamentGroupService tournamentGroupService, TournamentGroupMapper tournamentGroupMapper) {
         this.tournamentGroupService = tournamentGroupService;
+        this.tournamentGroupMapper = tournamentGroupMapper;
     }
 
     @GetMapping

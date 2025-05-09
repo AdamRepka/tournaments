@@ -90,7 +90,7 @@ public class TournamentGroupService {
         }
 
 // Ulož všechny skupiny (hráči se uloží díky cascade = CascadeType.ALL)
-        groupRepository.saveAll(groups);
+        //groupRepository.saveAll(groups);
 
         return groups.stream()
                 .map(groupMapper::tournamentGroupToTournamentGroupDto)
@@ -189,16 +189,19 @@ public class TournamentGroupService {
     }
 
 
-    @Transactional
     public void deleteTournamentGroup(Long groupId) {
         TournamentGroup group = groupRepository.findById(groupId)
-                .orElseThrow(() -> new EntityNotFoundException("Group not found with id: " + groupId));
+                .orElseThrow(() -> new EntityNotFoundException("Group not found"));
 
+        // Nastavíme všem hráčům group = null
         for (Player player : group.getPlayers()) {
             player.setTournamentGroup(null);
         }
+        playerRepository.saveAll(group.getPlayers());
 
+        // A pak smažeme skupinu
         groupRepository.delete(group);
     }
+
 
 }
