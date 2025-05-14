@@ -16,18 +16,19 @@ import java.util.stream.Collectors;
 public class MatchSetController {
 
     private final MatchSetService matchSetService;
-    private final MatchSetMapper matchSetMapper = MatchSetMapper.INSTANCE;
+    private final MatchSetMapper matchSetMapper;
 
     @Autowired
-    public MatchSetController(MatchSetService matchSetService) {
+    public MatchSetController(MatchSetService matchSetService, MatchSetMapper matchSetMapper) {
         this.matchSetService = matchSetService;
+        this.matchSetMapper = matchSetMapper;
     }
 
     @GetMapping
     public ResponseEntity<List<MatchSetDto>> getAllMatchSets() {
         List<MatchSet> matchSets = matchSetService.getAllMatchSets();
         List<MatchSetDto> dtos = matchSets.stream()
-                .map(matchSetMapper::matchSetToMatchSetDto)
+                .map(matchSetMapper::toDto)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(dtos);
     }
@@ -35,22 +36,22 @@ public class MatchSetController {
     @GetMapping("/{id}")
     public ResponseEntity<MatchSetDto> getMatchSetById(@PathVariable Long id) {
         return matchSetService.getMatchSetById(id)
-                .map(matchSet -> ResponseEntity.ok(matchSetMapper.matchSetToMatchSetDto(matchSet)))
+                .map(matchSet -> ResponseEntity.ok(matchSetMapper.toDto(matchSet)))
                 .orElse(ResponseEntity.notFound().build());
     }
 
     @PostMapping
     public ResponseEntity<MatchSetDto> createMatchSet(@RequestBody MatchSetDto matchSetDto) {
-        MatchSet matchSet = matchSetMapper.matchSetDtoToMatchSet(matchSetDto);
+        MatchSet matchSet = matchSetMapper.toMatchSet(matchSetDto);
         MatchSet saved = matchSetService.createMatchSet(matchSet);
-        return ResponseEntity.status(201).body(matchSetMapper.matchSetToMatchSetDto(saved));
+        return ResponseEntity.status(201).body(matchSetMapper.toDto(saved));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<MatchSetDto> updateMatchSet(@PathVariable Long id, @RequestBody MatchSetDto matchSetDto) {
-        MatchSet matchSet = matchSetMapper.matchSetDtoToMatchSet(matchSetDto);
+        MatchSet matchSet = matchSetMapper.toMatchSet(matchSetDto);
         MatchSet updated = matchSetService.updateMatchSet(id, matchSet);
-        return ResponseEntity.ok(matchSetMapper.matchSetToMatchSetDto(updated));
+        return ResponseEntity.ok(matchSetMapper.toDto(updated));
     }
 
     @DeleteMapping("/{id}")

@@ -1,12 +1,20 @@
 package com.repasoft.tournaments.mapper;
 
+import com.repasoft.tournaments.dto.MatchSetDto;
 import com.repasoft.tournaments.dto.TournamentGroupDto;
+import com.repasoft.tournaments.dto.TournamentMatchDto;
+import com.repasoft.tournaments.model.MatchSet;
 import com.repasoft.tournaments.model.TournamentGroup;
 import com.repasoft.tournaments.dto.PlayerDto;
 import com.repasoft.tournaments.model.Player;
+import com.repasoft.tournaments.model.TournamentMatch;
+import com.repasoft.tournaments.repository.GroupRepository;
+import com.repasoft.tournaments.repository.MatchSetRepository;
+import com.repasoft.tournaments.repository.PlayerRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 @Component
@@ -14,6 +22,10 @@ import java.util.stream.Collectors;
 public class TournamentGroupMapper {
 
     private final PlayerMapper playerMapper;
+    private final GroupRepository groupRepository;
+    private final MatchSetRepository matchSetRepository;
+    private final PlayerRepository playerRepository;
+    private final MatchSetMapper matchSetMapper;
 
     public TournamentGroupDto tournamentGroupToTournamentGroupDto(TournamentGroup tournamentGroup) {
         if (tournamentGroup == null) return null;
@@ -28,7 +40,19 @@ public class TournamentGroupMapper {
                                         .collect(Collectors.toList())
                                 : null
                 )
-                .matches(null) // TODO: přidej mapování pro TournamentMatch pokud potřebuješ
+                .matches(tournamentGroup.getMatches().stream()
+                        .map(match -> TournamentMatchDto.builder()
+                                .id(match.getId())
+                                .tournamentGroupId(match.getTournamentGroup().getId())
+                                .player1Id(match.getPlayer1().getId())
+                                .player2Id(match.getPlayer2().getId())
+                                .matchSets(match.getMatchSets().stream()
+                                        .map(matchSetMapper::toDto)
+                                        .toList())
+                                .player1SetsWon(match.getPlayer1SetsWon())
+                                .player2SetsWon(match.getPlayer2SetsWon())
+                                .build())
+                        .toList())// TODO: přidej mapování pro TournamentMatch pokud potřebuješ
                 .build();
     }
 
@@ -45,7 +69,17 @@ public class TournamentGroupMapper {
                                         .collect(Collectors.toList())
                                 : null
                 )
-                .matches(null) // TODO: přidej mapování pro TournamentMatch pokud potřebuješ
+                .matches(tournamentGroupDto.getMatches().stream()
+                        .map(match -> TournamentMatch.builder()
+                                .id(match.getId())
+                                .tournamentGroup(groupRepository.findById(match.getTournamentGroupId()).orElse(null))
+                                .player1(playerRepository.findById(match.getPlayer1Id()).orElse(null))
+                                .player2(playerRepository.findById(match.getPlayer2Id()).orElse(null))
+                                .matchSets(match.getMatchSets().stream()
+                                        .map(matchSetMapper::toMatchSet)
+                                        .toList())
+                                .build())
+                        .toList()) // TODO: přidej mapování pro TournamentMatch pokud potřebuješ
                 .build();
     }
 }

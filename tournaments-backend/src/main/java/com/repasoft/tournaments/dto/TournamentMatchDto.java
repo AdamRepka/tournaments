@@ -2,6 +2,8 @@ package com.repasoft.tournaments.dto;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -9,11 +11,10 @@ import lombok.*;
 @Builder
 public class TournamentMatchDto {
     private Long id;
-    private Long playerAId;
-    private Long playerBId;
-    private Integer setsPlayerA;
-    private Integer setsPlayerB;
-    private Integer ballsPlayerA;
-    private Integer ballsPlayerB;
-    private boolean completed;
+    private Long player1Id;
+    private Long player2Id;
+    private List<MatchSetDto> matchSets;
+    private Long tournamentGroupId;
+    private int player1SetsWon;
+    private int player2SetsWon;
 }

@@ -4,6 +4,7 @@ import com.repasoft.tournaments.dto.TournamentMatchDto;
 import com.repasoft.tournaments.mapper.TournamentMatchMapper;
 import com.repasoft.tournaments.model.TournamentMatch;
 import com.repasoft.tournaments.service.TournamentMatchService;
+import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,48 +15,31 @@ import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/api/matches")
+@RequiredArgsConstructor
 public class TournamentMatchController {
 
-    private final TournamentMatchService matchService;
-    private final TournamentMatchMapper matchMapper = TournamentMatchMapper.INSTANCE;
-
-    @Autowired
-    public TournamentMatchController(TournamentMatchService matchService) {
-        this.matchService = matchService;
-    }
-
-    @GetMapping
-    public ResponseEntity<List<TournamentMatchDto>> getAllMatches() {
-        List<TournamentMatch> matches = matchService.getAllTournamentMatches();
-        List<TournamentMatchDto> matchDtos = matches.stream().map(matchMapper::tournamentMatchToTournamentMatchDto).collect(Collectors.toList());
-        return ResponseEntity.ok(matchDtos);
-    }
-
-    @GetMapping("/{id}")
-    public ResponseEntity<TournamentMatchDto> getMatchById(@PathVariable Long id) {
-        return matchService.getTournamentMatchById(id)
-                .map(match -> ResponseEntity.ok(matchMapper.tournamentMatchToTournamentMatchDto(match)))
-                .orElse(ResponseEntity.notFound().build());
-    }
+    private final TournamentMatchService tournamentMatchService;
+    private final TournamentMatchMapper tournamentMatchMapper;
 
     @PostMapping
-    public ResponseEntity<TournamentMatchDto> createMatch(@RequestBody TournamentMatchDto matchDto) {
-        TournamentMatch match = matchMapper.tournamentMatchDtoToTournamentMatch(matchDto);
-        TournamentMatch savedMatch = matchService.createTournamentMatch(match);
-        return ResponseEntity.status(HttpStatus.CREATED).body(matchMapper.tournamentMatchToTournamentMatchDto(savedMatch));
+    public TournamentMatch createMatch(@RequestBody TournamentMatch match) {
+        return tournamentMatchService.saveMatch(match);
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<TournamentMatchDto> updateMatch(@PathVariable Long id, @RequestBody TournamentMatchDto matchDto) {
-        TournamentMatch match = matchMapper.tournamentMatchDtoToTournamentMatch(matchDto);
+    public TournamentMatch updateMatch(@PathVariable Long id, @RequestBody TournamentMatch match) {
         match.setId(id);
-        TournamentMatch updatedMatch = matchService.updateTournamentMatch(id, match);
-        return ResponseEntity.ok(matchMapper.tournamentMatchToTournamentMatchDto(updatedMatch));
+        return tournamentMatchService.saveMatch(match);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteMatch(@PathVariable Long id) {
-        matchService.deleteTournamentMatch(id);
-        return ResponseEntity.noContent().build();
+    @GetMapping("/{id}")
+    public TournamentMatch getMatch(@PathVariable Long id) {
+        return tournamentMatchService.getMatch(id);
+    }
+
+    @PostMapping("/result")
+    public ResponseEntity<Void> saveResult(@RequestBody TournamentMatchDto match) {
+        tournamentMatchService.saveMatch(tournamentMatchMapper.toMatch(match));
+        return ResponseEntity.ok().build();
     }
 }
