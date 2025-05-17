@@ -24,8 +24,8 @@ public class TournamentMatchMapper {
         if (dto == null) return null;
         return TournamentMatch.builder()
                 .id(dto.getId())
-                .player1(playerRepository.getReferenceById(dto.getPlayer1Id()))
-                .player2(playerRepository.getReferenceById(dto.getPlayer2Id()))
+                .player1(playerRepository.findById(dto.getPlayer1Id()).orElseThrow())
+                .player2(playerRepository.findById(dto.getPlayer2Id()).orElseThrow())
                 .matchSets(dto.getMatchSets().stream()
                         .map(matchSetMapper::toMatchSet)
                         .toList())

@@ -110,9 +110,11 @@ const renderMatchResult = (matches, p1Id, p2Id) => {
     const result = `${match.player1SetsWon}:${match.player2SetsWon}`;
 
     const sets = match.matchSets.map((set, idx) => {
-        const winner = set.player1Points > set.player2Points ? 'player1' : 'player2';
+        const winner = set.player1Points > set.player2Points ? 'player1'
+            : set.player1Points < set.player2Points ? 'player2' : 'none';
         return (
-            <span key={idx} className={`mx-1 ${winner === 'player1' ? 'text-green-600 font-bold' : 'text-gray-500'}`}>
+            <span key={idx} className={`mx-1 ${winner === 'player1' ? 'text-green-600 font-bold' 
+                : winner === 'player2' ? 'text-red-700' : 'text-gray-700'}`}>
                 {set.player1Points}:{set.player2Points}
             </span>
         );
@@ -120,7 +122,8 @@ const renderMatchResult = (matches, p1Id, p2Id) => {
 
     return (
         <div className="flex flex-col items-center">
-            <div className={`font-semibold ${match.player1SetsWon > match.player2SetsWon ? 'text-green-700' : 'text-gray-500'}`}>
+            <div className={`font-semibold ${match.player1SetsWon > match.player2SetsWon ? 'text-green-700' :
+                match.player1SetsWon < match.player2SetsWon ? 'text-red-700': 'text-gray-700'}`}>
                 {result}
             </div>
             <div className="flex text-xs">{sets}</div>
@@ -134,7 +137,6 @@ const GroupTables = () => {
     const [deletingGroupId, setDeletingGroupId] = useState(null);
     const [toast, setToast] = useState(null);
     const [selectedMatch, setSelectedMatch] = useState(null);
-    const [matchResults, setMatchResults] = useState({});
 
     const fetchGroups = async () => {
         try {
@@ -230,14 +232,6 @@ const GroupTables = () => {
             console.error('Chyba při ukládání zápasu:', err);
             showToast('❌ Nepodařilo se uložit zápas.');
         }
-
-        setMatchResults(prev => ({
-            ...prev,
-            [key]: {
-                id: payload.id,
-                sets: payload.matchSets
-            }
-        }));
     };
 
     if (loading) return <p className="text-center mt-4">⏳ Načítám skupiny...</p>;
@@ -292,6 +286,11 @@ const GroupTables = () => {
                                 </td>
                                 {group.players.map(colPlayer => {
                                     const key = `${rowPlayer.id}-${colPlayer.id}`;
+                                    const match = group.matches.find(m =>
+                                        m.player1Id === rowPlayer.id && m.player2Id === colPlayer.id
+                                    );
+                                    const matchPlayed = match && (match.player1SetsWon > 0 || match.player2SetsWon > 0);
+
                                     return (
                                         <td
                                             key={colPlayer.id}
@@ -299,7 +298,7 @@ const GroupTables = () => {
                                             className={`border p-2 text-center cursor-pointer ${
                                                 rowPlayer.id === colPlayer.id
                                                     ? 'bg-black text-white font-bold'
-                                                    : 'hover:bg-blue-50'
+                                                    : `${matchPlayed ? 'bg-blue-100' : ''} hover:bg-blue-50`
                                             }`}
                                         >
                                             {rowPlayer.id === colPlayer.id
@@ -308,6 +307,7 @@ const GroupTables = () => {
                                         </td>
                                     );
                                 })}
+
                                 <td className="border p-2 text-center">{rowPlayer.points}</td>
                                 <td className="border p-2 text-center">{rowPlayer.sets}</td>
                                 <td className="border p-2 text-center">{rowPlayer.balls}</td>

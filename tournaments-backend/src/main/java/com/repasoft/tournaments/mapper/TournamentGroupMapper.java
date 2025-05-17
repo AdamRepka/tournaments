@@ -15,6 +15,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.stream.Collectors;
 
 @Component
@@ -37,6 +38,7 @@ public class TournamentGroupMapper {
                         tournamentGroup.getPlayers() != null ?
                                 tournamentGroup.getPlayers().stream()
                                         .map(playerMapper::playerToPlayerDto)
+                                        .sorted(Comparator.comparingInt(PlayerDto::getGroupIndex))
                                         .collect(Collectors.toList())
                                 : null
                 )
@@ -66,7 +68,7 @@ public class TournamentGroupMapper {
                         tournamentGroupDto.getPlayers() != null ?
                                 tournamentGroupDto.getPlayers().stream()
                                         .map(playerMapper::playerDtoToPlayer)
-                                        .collect(Collectors.toList())
+                                        .collect(Collectors.toSet())
                                 : null
                 )
                 .matches(tournamentGroupDto.getMatches().stream()
@@ -79,7 +81,7 @@ public class TournamentGroupMapper {
                                         .map(matchSetMapper::toMatchSet)
                                         .toList())
                                 .build())
-                        .toList()) // TODO: přidej mapování pro TournamentMatch pokud potřebuješ
+                        .collect(Collectors.toSet())) // TODO: přidej mapování pro TournamentMatch pokud potřebuješ
                 .build();
     }
 }

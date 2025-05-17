@@ -33,6 +33,7 @@ public class PlayerMapper {
                 .code(dto.getCode())
                 .entryFeePaid(dto.isEntryFeePaid())
                 .playerStatistics(stats)
+                .groupIndex(dto.getGroupIndex() != null ? dto.getGroupIndex() : 0)
                 .build();
 
         stats.setPlayer(player); // nastavíme vztah zpět
@@ -52,6 +53,7 @@ public class PlayerMapper {
                 .category(player.getCategory())
                 .skillLevel(player.getSkillLevel())
                 .code(player.getCode())
+                .groupIndex(player.getGroupIndex())
                 .entryFeePaid(player.isEntryFeePaid())
                 .points(stats != null ? stats.getPoints() : null)
                 .sets(stats != null ? stats.getSetsWon() : null)  // mapujeme setsWon → sets

@@ -26,4 +26,5 @@ public class PlayerDto {
     private Integer draws;
     private Integer groupPosition;
     private Integer tournamentPosition;
+    private Integer groupIndex;
 }

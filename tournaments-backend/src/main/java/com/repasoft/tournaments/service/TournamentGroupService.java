@@ -3,11 +3,15 @@ package com.repasoft.tournaments.service;
 import com.repasoft.tournaments.dto.PlayerDto;
 import com.repasoft.tournaments.dto.TournamentGroupDto;
 import com.repasoft.tournaments.mapper.TournamentGroupMapper;
+import com.repasoft.tournaments.model.MatchSet;
 import com.repasoft.tournaments.model.Player;
 import com.repasoft.tournaments.model.TournamentGroup;
+import com.repasoft.tournaments.model.TournamentMatch;
 import com.repasoft.tournaments.model.enums.PlayerCategory;
 import com.repasoft.tournaments.model.enums.SkillLevel;
 import com.repasoft.tournaments.repository.GroupRepository;
+import com.repasoft.tournaments.repository.MatchRepository;
+import com.repasoft.tournaments.repository.MatchSetRepository;
 import com.repasoft.tournaments.repository.PlayerRepository;
 import jakarta.persistence.EntityNotFoundException;
 import jakarta.transaction.Transactional;
@@ -26,13 +30,19 @@ public class TournamentGroupService {
     private final GroupRepository groupRepository;
     private final PlayerRepository playerRepository;
     private final TournamentGroupMapper groupMapper;
+    private final MatchRepository matchRepository;
+    private final MatchSetRepository matchSetRepository;
 
     public TournamentGroupService(GroupRepository groupRepository,
                                   PlayerRepository playerRepository,
-                                  TournamentGroupMapper groupMapper) {
+                                  TournamentGroupMapper groupMapper,
+                                  MatchRepository matchRepository,
+                                  MatchSetRepository matchSetRepository) {
         this.groupRepository = groupRepository;
         this.playerRepository = playerRepository;
         this.groupMapper = groupMapper;
+        this.matchRepository = matchRepository;
+        this.matchSetRepository = matchSetRepository;
     }
 
     public List<TournamentGroup> getAllTournamentGroups() {
@@ -74,13 +84,15 @@ public class TournamentGroupService {
         for (int i = 0; i < groupCount; i++) {
             TournamentGroup group = new TournamentGroup();
             group.setName(category.name() + " skupina " + (i + 1));
-            group.setPlayers(new ArrayList<>());
+            group.setPlayers(new HashSet<>());
             groups.add(group);
         }
 
         distributeAdvancedPlayers(groups, advancedPlayers);
         Collections.shuffle(otherPlayers);
         fillGroups(groups, otherPlayers, playersPerGroup);
+        groupRepository.saveAll(groups);
+        fillMatches(groups);
 
         // Před uložením nastav zpětnou vazbu hráčům
         for (TournamentGroup group : groups) {
@@ -97,9 +109,39 @@ public class TournamentGroupService {
                 .collect(Collectors.toList());
     }
 
+    private void fillMatches(List<TournamentGroup> groups) {
+        groups.forEach(group -> {
+            Set<TournamentMatch> groupMatches = new HashSet<>();
+            for (int i = 0; i < group.getPlayers().size(); i++) {
+                for (int j = 0; j < group.getPlayers().size(); j++) {
+                    if (i == j) continue;
+                    List<MatchSet> matchSets = new ArrayList<>();
+                    TournamentMatch match = TournamentMatch.builder()
+                            .tournamentGroup(group)
+                            .finished(false)
+                            .player1(group.getPlayers().stream().toList().get(i))
+                            .player2(group.getPlayers().stream().toList().get(j))
+                            .build();
+                    matchSets.add(MatchSet.builder()
+                            .match(match)
+                            .build());
+                    matchSets.add(MatchSet.builder()
+                            .match(match)
+                            .build());
+                    match.setMatchSets(matchSets);
+                    groupMatches.add(match);
+                    matchRepository.save(match);
+                    matchSetRepository.saveAll(matchSets);
+                }
+            }
+            group.setMatches(groupMatches);
+        });
+    }
+
     private void distributeAdvancedPlayers(List<TournamentGroup> groups, List<Player> advancedPlayers) {
         int groupIndex = 0;
         for (Player advanced : advancedPlayers) {
+            advanced.setGroupIndex(groups.get(groupIndex).getPlayers().size());
             groups.get(groupIndex).getPlayers().add(advanced);
             groupIndex = (groupIndex + 1) % groups.size();
         }
@@ -117,6 +159,7 @@ public class TournamentGroupService {
 
                 if (group.getPlayers().size() < playersPerGroup &&
                         !lastNames.contains(player.getLastName())) {
+                    player.setGroupIndex(group.getPlayers().size());
                     group.getPlayers().add(player);
                     placed = true;
                     break;
@@ -127,7 +170,10 @@ public class TournamentGroupService {
                 groups.stream()
                         .filter(g -> g.getPlayers().size() < playersPerGroup)
                         .findFirst()
-                        .ifPresent(g -> g.getPlayers().add(player));
+                        .ifPresent(g -> {
+                            player.setGroupIndex(g.getPlayers().size());
+                            g.getPlayers().add(player);
+                        });
             }
         }
     }
@@ -159,12 +205,12 @@ public class TournamentGroupService {
                 group = groupRepository.findById(dto.getId())
                         .orElseGet(() -> TournamentGroup.builder()
                                 .name(dto.getName())
-                                .players(new ArrayList<>())
+                                .players(new HashSet<>())
                                 .build());
             } else {
                 group = TournamentGroup.builder()
                         .name(dto.getName())
-                        .players(new ArrayList<>())
+                        .players(new HashSet<>())
                         .build();
             }
 

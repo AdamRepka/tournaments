@@ -38,4 +38,6 @@ public class Player {
     @ManyToOne
     @JoinColumn(name = "group_id")
     private TournamentGroup tournamentGroup;
+
+    private int groupIndex;
 }

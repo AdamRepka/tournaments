@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Getter
@@ -23,8 +24,8 @@ public class TournamentGroup {
     private Tournament tournament;
 
     @OneToMany(mappedBy = "tournamentGroup", cascade = CascadeType.PERSIST)
-    private List<Player> players;
+    private Set<Player> players;
 
     @OneToMany(mappedBy = "tournamentGroup", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<TournamentMatch> matches;
+    private Set<TournamentMatch> matches;
 }
