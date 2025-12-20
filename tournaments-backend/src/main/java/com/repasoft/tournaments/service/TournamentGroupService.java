@@ -46,7 +46,14 @@ public class TournamentGroupService {
     }
 
     public List<TournamentGroup> getAllTournamentGroups() {
-        return groupRepository.findAll();
+        List<TournamentGroup> groups = groupRepository.findAll();
+        List<Player> players = playerRepository.findAll();
+        groups.forEach(group ->
+            group.setPlayers(players.stream()
+                    .filter(player -> player.getTournamentGroup().equals(group))
+                    .collect(Collectors.toSet())))
+                ;
+        return groups;
     }
 
     public TournamentGroup getTournamentGroupById(Long id) {

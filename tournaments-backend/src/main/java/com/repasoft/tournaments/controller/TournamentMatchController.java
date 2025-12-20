@@ -1,7 +1,11 @@
 package com.repasoft.tournaments.controller;
 
+import com.repasoft.tournaments.dto.DummyPlayerDto;
+import com.repasoft.tournaments.dto.PlayerDto;
 import com.repasoft.tournaments.dto.TournamentMatchDto;
+import com.repasoft.tournaments.mapper.PlayerMapper;
 import com.repasoft.tournaments.mapper.TournamentMatchMapper;
+import com.repasoft.tournaments.model.Player;
 import com.repasoft.tournaments.model.TournamentMatch;
 import com.repasoft.tournaments.service.TournamentMatchService;
 import lombok.RequiredArgsConstructor;
@@ -10,6 +14,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,6 +25,7 @@ public class TournamentMatchController {
 
     private final TournamentMatchService tournamentMatchService;
     private final TournamentMatchMapper tournamentMatchMapper;
+    private final PlayerMapper playerMapper;
 
     @PostMapping
     public TournamentMatch createMatch(@RequestBody TournamentMatch match) {
@@ -41,5 +47,12 @@ public class TournamentMatchController {
     public ResponseEntity<Void> saveResult(@RequestBody TournamentMatchDto match) {
         tournamentMatchService.saveMatch(tournamentMatchMapper.toMatch(match));
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping("/loadMatch/{matchId}")
+    public TournamentMatchDto loadMatch(@PathVariable Long matchId) {
+        TournamentMatch match = tournamentMatchService.getMatch(matchId);
+        TournamentMatchDto matchDto = tournamentMatchMapper.toDto(match);
+        return matchDto;
     }
 }

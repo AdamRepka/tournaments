@@ -102,23 +102,36 @@ const renderMatchResult = (matches, p1Id, p2Id) => {
     const match = matches.find(m =>
         m?.player1Id !== undefined &&
         m?.player2Id !== undefined &&
-        (m.player1Id === p1Id && m.player2Id === p2Id)
+        (
+            (m.player1Id === p1Id && m.player2Id === p2Id) ||
+            (m.player1Id === p2Id && m.player2Id === p1Id)
+        )
     );
+
 
     if (!match) return '-';
 
-    const result = `${match.player1SetsWon}:${match.player2SetsWon}`;
+    const isOriginalOrder = match.player1Id === p1Id;
 
     const sets = match.matchSets.map((set, idx) => {
-        const winner = set.player1Points > set.player2Points ? 'player1'
-            : set.player1Points < set.player2Points ? 'player2' : 'none';
+        const p1Points = isOriginalOrder ? set.player1Points : set.player2Points;
+        const p2Points = isOriginalOrder ? set.player2Points : set.player1Points;
+
+        const winner = p1Points > p2Points ? 'player1'
+            : p1Points < p2Points ? 'player2' : 'none';
+
         return (
-            <span key={idx} className={`mx-1 ${winner === 'player1' ? 'text-green-600 font-bold' 
+            <span key={idx} className={`mx-1 ${winner === 'player1' ? 'text-green-600 font-bold'
                 : winner === 'player2' ? 'text-red-700' : 'text-gray-700'}`}>
-                {set.player1Points}:{set.player2Points}
-            </span>
+            {p1Points}:{p2Points}
+        </span>
         );
     });
+
+    const result = isOriginalOrder
+        ? `${match.player1SetsWon}:${match.player2SetsWon}`
+        : `${match.player2SetsWon}:${match.player1SetsWon}`;
+
 
     return (
         <div className="flex flex-col items-center">

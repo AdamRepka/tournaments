@@ -1,15 +1,10 @@
 package com.repasoft.tournaments.mapper;
 
-import com.repasoft.tournaments.dto.PlayerDto;
 import com.repasoft.tournaments.dto.TournamentMatchDto;
-import com.repasoft.tournaments.model.Player;
-import com.repasoft.tournaments.model.PlayerStatistics;
 import com.repasoft.tournaments.model.TournamentMatch;
 import com.repasoft.tournaments.repository.GroupRepository;
 import com.repasoft.tournaments.repository.PlayerRepository;
 import lombok.AllArgsConstructor;
-import org.mapstruct.Mapper;
-import org.mapstruct.factory.Mappers;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -24,8 +19,8 @@ public class TournamentMatchMapper {
         if (dto == null) return null;
         return TournamentMatch.builder()
                 .id(dto.getId())
-                .player1(playerRepository.findById(dto.getPlayer1Id()).orElseThrow())
-                .player2(playerRepository.findById(dto.getPlayer2Id()).orElseThrow())
+                .player1(playerRepository.findById(dto.getPlayerHomeId()).orElseThrow())
+                .player2(playerRepository.findById(dto.getPlayerAwayId()).orElseThrow())
                 .matchSets(dto.getMatchSets().stream()
                         .map(matchSetMapper::toMatchSet)
                         .toList())
@@ -38,8 +33,8 @@ public class TournamentMatchMapper {
         return TournamentMatchDto.builder()
                 .id(tournamentMatch.getId())
                 .tournamentGroupId(tournamentMatch.getTournamentGroup().getId())
-                .player1Id(tournamentMatch.getPlayer1().getId())
-                .player2Id(tournamentMatch.getPlayer2().getId())
+                .playerHomeId(tournamentMatch.getPlayer1().getId())
+                .playerAwayId(tournamentMatch.getPlayer2().getId())
                 .matchSets(tournamentMatch.getMatchSets().stream().map(matchSetMapper::toDto).toList())
                 .build();
     }

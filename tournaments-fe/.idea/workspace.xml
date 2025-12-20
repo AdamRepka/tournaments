@@ -5,12 +5,29 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="fb0b561a-13cf-49c9-ab3c-e61f3e4a07d1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/DummyPlayerDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/groupApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/api/matchApi.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GroupComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GroupTable.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GroupTableTv.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/GroupView.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MatchComponent.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/MatchModal.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dto/types.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/ShowMatch.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentMatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentMatchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/TournamentMatchDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/TournamentMatchDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentGroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentGroupMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/TournamentGroup.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/TournamentGroup.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentMatchMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentMatchMapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentGroupService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentMatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentMatchService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/GroupResultsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GroupResultsComponent.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,6 +39,8 @@
       <list>
         <option value="JavaScript File" />
         <option value="JSX File" />
+        <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -40,27 +59,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
-    &quot;Node.js.App.js.executor&quot;: &quot;Debug&quot;,
-    &quot;Node.js.GroupSetupComponent.js.executor&quot;: &quot;Debug&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dell/projekty/tournaments/tournaments-fe&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;npm.start.executor&quot;: &quot;Debug&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ModuleVcsDetector.initialDetectionPerformed": "true",
+    "Node.js.App.js.executor": "Debug",
+    "Node.js.GroupSetupComponent.js.executor": "Debug",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Dell/projekty/tournaments/tournaments-fe",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "npm.start.executor": "Debug",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
+    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Dell\projekty\tournaments\tournaments-fe\src\dto" />
       <recent name="C:\Users\Dell\projekty\tournaments\tournaments-fe\src" />
       <recent name="C:\Users\Dell\projekty\tournaments\tournaments-fe\src\styles" />
     </key>
@@ -101,6 +122,16 @@
       <workItem from="1747299337943" duration="701000" />
       <workItem from="1747333217229" duration="892000" />
       <workItem from="1747508881410" duration="3432000" />
+      <workItem from="1747595170667" duration="1199000" />
+      <workItem from="1748881964781" duration="134000" />
+      <workItem from="1752874013185" duration="1259000" />
+      <workItem from="1752947992450" duration="8538000" />
+      <workItem from="1753017055590" duration="613000" />
+      <workItem from="1753559079419" duration="2514000" />
+      <workItem from="1753604557264" duration="3227000" />
+      <workItem from="1756382281006" duration="45000" />
+      <workItem from="1766165452836" duration="5104000" />
+      <workItem from="1766236603751" duration="5252000" />
     </task>
     <servers />
   </component>

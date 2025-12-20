@@ -20,7 +20,7 @@ public class TournamentMatchService {
     private final PlayerStatisticsRepository statsRepository;
     private final GroupRepository groupRepository;
 
-    public TournamentMatch saveMatch(TournamentMatch match) {
+    public TournamentMatch  saveMatch(TournamentMatch match) {
         // spočítat vyhrané sety
         int player1SetsWon = 0;
         int player2SetsWon = 0;

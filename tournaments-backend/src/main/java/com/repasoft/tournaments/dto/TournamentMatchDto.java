@@ -11,10 +11,10 @@ import java.util.List;
 @Builder
 public class TournamentMatchDto {
     private Long id;
-    private Long player1Id;
-    private Long player2Id;
+    private Long playerHomeId;
+    private Long playerAwayId;
     private List<MatchSetDto> matchSets;
     private Long tournamentGroupId;
-    private int player1SetsWon;
-    private int player2SetsWon;
+    private int playerHomeSetsWon;
+    private int playerAwaySetsWon;
 }

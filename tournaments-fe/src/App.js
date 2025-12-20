@@ -6,7 +6,8 @@ import AddPlayer from './pages/AddPlayer'; // Import stránky pro přidání hr�
 import PlayerList from './pages/PlayerList';
 import EditPlayer from "./components/EditPlayer";
 import GroupSetup from "./pages/GroupSetup";
-import GroupResults from "./pages/GroupResults"; // Import stránky pro seznam hráčů
+import GroupResults from "./pages/GroupResults";
+import ShowMatch from "./pages/ShowMatch"; // Import stránky pro seznam hráčů
 
 function App() {
     return (
@@ -19,6 +20,7 @@ function App() {
                 <Route path="/players/edit/:id" element={<EditPlayer />} />
                 <Route path="/group-setup" element={<GroupSetup />} />
                 <Route path="/group-results" element={<GroupResults />} />/
+                <Route path="/show-match" element={<ShowMatch />} />
             </Routes>
         </Router>
     );
