@@ -2,14 +2,19 @@ package com.repasoft.tournaments.controller;
 
 import com.repasoft.tournaments.dto.*;
 import com.repasoft.tournaments.mapper.TournamentGroupMapper;
+import com.repasoft.tournaments.model.MatchPaper;
 import com.repasoft.tournaments.model.TournamentGroup;
+import com.repasoft.tournaments.print.MatchPaperPdfGenerator;
 import com.repasoft.tournaments.service.TournamentGroupService;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,6 +24,7 @@ public class TournamentGroupController {
 
     private final TournamentGroupService tournamentGroupService;
     private final TournamentGroupMapper tournamentGroupMapper;
+    private MatchPaperPdfGenerator pdfGenerator;
 
     @Autowired
     public TournamentGroupController(TournamentGroupService tournamentGroupService, TournamentGroupMapper tournamentGroupMapper) {
@@ -81,4 +87,22 @@ public class TournamentGroupController {
         tournamentGroupService.deleteTournamentGroup(id);
         return ResponseEntity.noContent().build();
     }
+
+    // TODO to by tady nemelo byt, udelat pres tournament
+    @GetMapping("/match-papers")
+    public ResponseEntity<byte[]> generateMatchPapers() throws IOException {
+        pdfGenerator = new MatchPaperPdfGenerator();
+        List<MatchPaper> papers = tournamentGroupService.getAllTournamentGroups().stream()
+                .flatMap(group -> group.getMatches().stream()
+                        .map(match -> new MatchPaper(match.getPlayer1(), match.getPlayer2(), group, 5)))
+                .collect(Collectors.toList());
+
+        byte[] pdf = pdfGenerator.generate(papers);
+
+        return ResponseEntity.ok()
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=match-papers.pdf")
+                .contentType(MediaType.APPLICATION_PDF)
+                .body(pdf);
+    }
+
 }

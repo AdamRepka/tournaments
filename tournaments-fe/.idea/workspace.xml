@@ -4,31 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb0b561a-13cf-49c9-ab3c-e61f3e4a07d1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/DummyPlayerDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/groupApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/api/matchApi.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GroupComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GroupTable.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GroupTableTv.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/GroupView.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MatchComponent.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/MatchModal.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dto/types.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/ShowMatch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentMatchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentMatchController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/TournamentMatchDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/TournamentMatchDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentGroupMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentGroupMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentMatchMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/mapper/TournamentMatchMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentGroupService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentGroupService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentMatchService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/TournamentMatchService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/GroupResultsComponent.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/GroupResultsComponent.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
-    </list>
+    <list default="true" id="fb0b561a-13cf-49c9-ab3c-e61f3e4a07d1" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -131,7 +107,7 @@
       <workItem from="1753604557264" duration="3227000" />
       <workItem from="1756382281006" duration="45000" />
       <workItem from="1766165452836" duration="5104000" />
-      <workItem from="1766236603751" duration="5252000" />
+      <workItem from="1766236603751" duration="6034000" />
     </task>
     <servers />
   </component>
