@@ -1,6 +1,6 @@
 package com.repasoft.tournaments.print;
 
-import com.repasoft.tournaments.model.MatchPaper;
+import com.repasoft.tournaments.model.print.MatchPaper;
 import com.repasoft.tournaments.model.Player;
 import org.apache.pdfbox.pdmodel.*;
 import org.apache.pdfbox.pdmodel.common.PDRectangle;

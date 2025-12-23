@@ -28,6 +28,9 @@ const Navbar = () => {
                     <Link to="/show-match" className="text-white hover:text-blue-300 transition duration-200">
                         Testovaci zobrazeni zapasu
                     </Link>
+                    <Link to="/play-off" className="text-white hover:text-blue-300 transition duration-200">
+                        Play-off
+                    </Link>
                 </div>
                 <button className="text-white md:hidden" onClick={toggleMenu}>
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" className="w-6 h-6">
@@ -53,6 +56,9 @@ const Navbar = () => {
                     </Link>
                     <Link to="/show-match" className="block text-white hover:text-blue-300 transition duration-200 py-2" onClick={toggleMenu}>
                         Testovaci zobrazeni zapasu
+                    </Link>
+                    <Link to="/play-off" className="block text-white hover:text-blue-300 transition duration-200 py-2" onClick={toggleMenu}>
+                        Play-off
                     </Link>
                 </div>
             )}

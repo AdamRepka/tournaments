@@ -1,5 +1,7 @@
-package com.repasoft.tournaments.model;
+package com.repasoft.tournaments.model.print;
 
+import com.repasoft.tournaments.model.Player;
+import com.repasoft.tournaments.model.TournamentGroup;
 import lombok.*;
 
 @Getter

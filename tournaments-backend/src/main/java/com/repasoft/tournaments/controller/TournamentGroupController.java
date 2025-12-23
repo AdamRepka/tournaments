@@ -2,7 +2,7 @@ package com.repasoft.tournaments.controller;
 
 import com.repasoft.tournaments.dto.*;
 import com.repasoft.tournaments.mapper.TournamentGroupMapper;
-import com.repasoft.tournaments.model.MatchPaper;
+import com.repasoft.tournaments.model.print.MatchPaper;
 import com.repasoft.tournaments.model.TournamentGroup;
 import com.repasoft.tournaments.print.MatchPaperPdfGenerator;
 import com.repasoft.tournaments.service.TournamentGroupService;

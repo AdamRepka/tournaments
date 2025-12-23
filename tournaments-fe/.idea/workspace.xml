@@ -4,7 +4,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fb0b561a-13cf-49c9-ab3c-e61f3e4a07d1" name="Changes" comment="" />
+    <list default="true" id="fb0b561a-13cf-49c9-ab3c-e61f3e4a07d1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/PlayOffController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/PlayOffDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/dto/PlayOffSetupDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/enums/StartRound.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/service/PlayOffService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/PlayOffSetupComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/PlayOff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentGroupController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/controller/TournamentGroupController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/MatchPaper.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/model/print/MatchPaper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/print/MatchPaperPdfGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../tournaments-backend/src/main/java/com/repasoft/tournaments/print/MatchPaperPdfGenerator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Navbar.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Navbar.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,10 +27,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="JSX File" />
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="JavaScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -35,26 +49,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Node.js.App.js.executor": "Debug",
-    "Node.js.GroupSetupComponent.js.executor": "Debug",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/Dell/projekty/tournaments/tournaments-fe",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.start.executor": "Debug",
-    "settings.editor.selected.configurable": "editor.preferences.fonts.default",
-    "ts.external.directory.path": "C:\\Program Files\\JetBrains\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Node.js.App.js.executor&quot;: &quot;Debug&quot;,
+    &quot;Node.js.GroupSetupComponent.js.executor&quot;: &quot;Debug&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Dell/projekty/tournaments/tournaments-fe&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.start.executor&quot;: &quot;Debug&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Program Files\\JetBrains\\WebStorm 2025.1\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Dell\projekty\tournaments\tournaments-fe\src\dto" />
@@ -107,7 +121,9 @@
       <workItem from="1753604557264" duration="3227000" />
       <workItem from="1756382281006" duration="45000" />
       <workItem from="1766165452836" duration="5104000" />
-      <workItem from="1766236603751" duration="6034000" />
+      <workItem from="1766236603751" duration="7221000" />
+      <workItem from="1766436328159" duration="5690000" />
+      <workItem from="1766520153273" duration="2719000" />
     </task>
     <servers />
   </component>
